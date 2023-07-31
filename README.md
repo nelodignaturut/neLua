@@ -1,4 +1,4 @@
-nelo's custom
+nelo's custom - neLua - Lua based script
 
 This project was created during my freetime on summer vacation for educational purpose
 
