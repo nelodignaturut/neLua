@@ -27,10 +27,13 @@ end)
 Section:NewSlider("Walkspeed Slider", "Same thing but slider", 500, 0, function(iShowPeed)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = iShowPeed
 end)
-Section:NewKeybind("30 WalkSpeed", "Quick 30", Enum.KeyCode.F2, function()
+Section:NewKeybind("30 WalkSpeed", "Keybind for said WalkSpeed", Enum.KeyCode.F1, function()
 	 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 30
 end)
-Section:NewKeybind("100 WalkSpeed", "Quick 100", Enum.KeyCode.F3, function()
+Section:NewKeybind("50 WalkSpeed", "Keybind for said WalkSpeed ", Enum.KeyCode.F2, function()
+	 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
+end)
+Section:NewKeybind("100 WalkSpeed", "Keybind for said WalkSpeed", Enum.KeyCode.F3, function()
 	 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
 end)
 local Section = Tab:NewSection("CameraZoomDistance")
@@ -387,10 +390,10 @@ end)
 Section:NewSlider("Walkspeed Slider", "Same thing but slider", 25, 0, function(slowaf)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = slowaf
 end)
-Section:NewKeybind("22 WalkSpeed Keybind", "Quickchange", Enum.KeyCode.F1, function()
+Section:NewKeybind("22 WalkSpeed Keybind", "Quickchange", Enum.KeyCode.F4, function()
 	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 22
 end)
-Section:NewLabel("WoA has a hard limit of 25, sometimes 22")
+Section:NewLabel("WoA used to have a hard limit of 25, sometimes 22")
 local Tab = Window:NewTab("Sword Blox Online")
 local Section = Tab:NewSection("Scripts")
 Section:NewButton("Script for fishing and mining", "ONLY FOR MINING AND FISHING", function()
