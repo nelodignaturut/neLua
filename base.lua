@@ -21,7 +21,7 @@ local Section = Tab:NewSection("WalkSpeed")
 Section:NewTextBox("WalkSpeed", "Input the walkspeed you desire", function(fast_af)
 	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = fast_af
 end)
-Section:NewDropdown("WalkSpeed Quickchanger", "Walkspeed with preset for certain games", {"16", "30", "40", "50", "100", "200"}, function(suck)
+Section:NewDropdown("WalkSpeed Quickchanger", "Walkspeed with preset for certain games", {"16", "30", "40", "50", "75", "90", "100", "200"}, function(suck)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = suck
 end)
 Section:NewSlider("Walkspeed Slider", "Same thing but slider", 500, 0, function(iShowPeed)
