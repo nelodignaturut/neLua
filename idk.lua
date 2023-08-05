@@ -1,6 +1,7 @@
 -- Very Beautiful Ui Lib :D
-local library = loadstring(game:HttpGet"https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua")()
-local venyx = library.new "nelo test"
+local library =
+    loadstring(game:HttpGet "https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua")()
+local venyx = library.new "//Sword Blox Online: Rebirth//         //test phase//"
 -- //Variables
 local User, RepStor = game:GetService "Players".LocalPlayer, game:GetService "ReplicatedStorage"
 local MobHolder, LastMobCFrame, HighestPartY, TempDisable, CurrentTarget = {}, {}, {}
@@ -58,6 +59,7 @@ do
         5
     )
 end
+
 -- Anti Fling (stole it from the game itself LMFAO)
 do
     spawnloop(
@@ -190,6 +192,127 @@ do
         )
     end
 end
+-- Auto Craft
+do
+    local AutoCraftPage = venyx:addPage "Auto Craft"
+    -- Items
+    do
+        local Enabled, Sections, NameHolder, Lvls = {}, {}, {}, {}
+        local Stuff = RepStor.CraftingRecipes:GetChildren()
+        table.sort(
+            Stuff,
+            function(a, b)
+                return a.CraftingSkill.Value < b.CraftingSkill.Value
+            end
+        )
+
+        local function IsExcluded(Item)
+            for _, name in next, {
+                "Easter Egg",
+                "Refined Egg",
+                "Turkey Feather",
+                "Candy Corn",
+                "Mage Robe Smooth White",
+                "Mage Robe Crinkled White",
+                "Mage Hat Crinkled White",
+                "Mage Hat Smooth White",
+                "Bunny Tail",
+                "Antlers Overlay",
+                "Top Hat White Overlay",
+                "Winter White Scarf Overlay",
+                "Santa White Hat Overlay",
+                "Rabbit Pelt Pink Overlay",
+                "White Bunny Ears",
+                "Sickly Beak"
+            } do
+                if Item:FindFirstChild(name) or Item.Name == name then
+                    return true
+                end
+            end
+        end
+
+        for _, v in next, Stuff do
+            if not IsExcluded(v) then
+                local lvl = tostring(v.CraftingSkill.Value)
+                if not Sections[lvl] then
+                    Sections[lvl] = AutoCraftPage:addSection("Lvl Requirement: " .. lvl)
+                end
+                if not NameHolder[lvl] then
+                    NameHolder[lvl] = {}
+                end
+                table.insert(NameHolder[lvl], v.Name)
+                if not table.find(Lvls, v.CraftingSkill.Value) then
+                    table.insert(Lvls, v.CraftingSkill.Value)
+                end
+            end
+        end
+        table.sort(Lvls)
+        venyx:Notify("Notification", "Loading Auto Craft...")
+        for _, Lvl in next, Lvls do
+            Lvl = tostring(Lvl)
+            table.sort(NameHolder[Lvl])
+            for _, Name in next, NameHolder[Lvl] do
+                print(Lvl, Name)
+                Sections[Lvl]:addToggle(
+                    Name,
+                    nil,
+                    function(value)
+                        Enabled[Name] = value
+                    end
+                )
+            end
+        end
+        venyx:Notify("Notification", "Auto Craft Loaded!")
+        local Stats = User.PlayerStats
+        local Inven, SmitSkill = Stats.Inventory, Stats.SmithingSkill
+
+        local function GetItemData(item)
+            return RepStor.CraftingRecipes:FindFirstChild(item)
+        end
+
+        local function EnoughMaterials(Material)
+            for i, v in next, Inven.Value:split "," do
+                if v:split "|"[1] == Material.Name and Material.Value <= tonumber(v:split "|"[2]) then
+                    return true
+                end
+            end
+        end
+
+        local function GotMaterials(item)
+            for i, Material in next, GetItemData(item):GetChildren() do
+                if
+                    Material.Name ~= "CraftingSkill" and Material:IsA "NumberValue" and
+                        (not string.find(Inven.Value, Material.Name) or not EnoughMaterials(Material))
+                 then
+                    return false
+                end
+            end
+            return true
+        end
+
+        local function CanCraft(item)
+            if GetItemData(item) and GetItemData(item).CraftingSkill.Value <= SmitSkill.Value and GotMaterials(item) then
+                return true
+            end
+        end
+
+        spawnloop(
+            function()
+                pcall(
+                    function()
+                        for item, IsTrue in next, Enabled do
+                            if IsTrue and task.wait() and CanCraft(item) then
+                                RepStor.CraftingStart:InvokeServer()
+                                task.wait(0.1)
+                                RepStor.CraftingEnded:InvokeServer("SmithingSkill", item, true)
+                            end
+                        end
+                    end
+                )
+            end
+        )
+    end
+end
 -- Theme
 do
     local colors = venyx:addPage "Theme":addSection "Colors"
@@ -210,5 +333,5 @@ do
         )
     end
 end
-venyx:Notify("EXPERIMENTAL FEATURE", "still trying to add hide UI")
+venyx:Notify("EXPERIMENTAL SCRIPT", "trying to add toggle UI")
 venyx:SelectPage(venyx.pages[1], true)
