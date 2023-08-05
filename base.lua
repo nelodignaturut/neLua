@@ -407,6 +407,7 @@ Section:NewKeybind("Toggle UI Keybind", "Rebind user interface toggle, press bou
 end)
 local Tab = Window:NewTab("Credits")
 local Section = Tab:NewSection("KavoUI Library by xHeptc")
+Section:NewLabel("VenyxUI Library by GreenDeno")
 Section:NewLabel("NoClip by KingLuna")
 Section:NewLabel("SBO:R Script by michaeplays")
 Section:NewLabel("nelo's custom by nelodignaturut")
