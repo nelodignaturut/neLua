@@ -109,6 +109,7 @@ do
                 end
             )
         end
+    end
     -- Collect Materials
     do
         local AutoCollectSection, Enabled = MainPage:addSection "Collect Materials", {}
