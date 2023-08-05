@@ -109,30 +109,6 @@ do
                 end
             )
         end
-        -- WalkSpeed
-        do
-            local walkSpeed = 18
-            MainSection:addSlider(
-                "Walk Speed",
-                18,
-                0,
-                500,
-                function(value)
-                    walkSpeed = value
-                end
-            )
-            spawnloop(
-                function()
-                    pcall(
-                        function()
-                            getrenv()._G.ZSwitch = true
-                            User.Character.Humanoid.WalkSpeed = walkSpeed
-                        end
-                    )
-                end
-            )
-        end
-    end
     -- Collect Materials
     do
         local AutoCollectSection, Enabled = MainPage:addSection "Collect Materials", {}
@@ -178,7 +154,7 @@ do
     -- Stats
     do
         local StatSection, Stats, Enabled =
-            MainPage:addSection "Auto Stat",
+            MainPage:addSection "Auto Stat - MIGHT WORK, UNTESTED",
             ("Vitality,Agility,Luck,Strength,Defense"):split ",",
             {}
         for __, Stat in next, Stats do
@@ -193,7 +169,7 @@ do
         -- Stat Reset
         do
             StatSection:addButton(
-                "Reset Stats",
+                "Reset Stats - WORKS, BUT LOGGED BY ADMIN",
                 function()
                     for __, Stat in next, Stats do
                         RepStor.StatsEvent:FireServer(Stat, 0)
