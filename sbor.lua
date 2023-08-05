@@ -59,48 +59,6 @@ do
         5
     )
 end
--- Get Mobs
-do
-    local function AddMob(Mob)
-        local Config = Mob:WaitForChild "Config"
-        local Name = Config:WaitForChild "Entity".Value
-        if not MobHolder[Name] then
-            MobHolder[Name] = {}
-        end
-        MobHolder[Name][Mob] = ""
-    end
-
-    workspace.Mobs.ChildAdded:connect(AddMob)
-    if getgenv().getnilinstances then
-        for _, Mob in next, getgenv().getnilinstances() do
-            if Mob:IsA "Model" and Mob:FindFirstChild "Config" and Mob.Config:FindFirstChild "Entity" then
-                AddMob(Mob)
-            end
-        end
-    end
-    for _, Mob in next, workspace.Mobs:GetChildren() do
-        task.spawn(AddMob, Mob)
-    end
-    spawnloop(
-        function()
-            for Name, Mobs in next, MobHolder do
-                for Mob, _ in next, Mobs do
-                    local Alive = IsAlive(Mob)
-                    if not Alive then
-                        Mobs[Mob] = nil
-                    else
-                        local Root = Mob:FindFirstChild "HumanoidRootPart"
-                        if Root then
-                            LastMobCFrame[Name] = CFrame.new(Root.Position) * CFrame.new(0, 0, -15)
-                        else
-                            LastMobCFrame[Name] = CFrame.new(Mob.Humanoid.WalkToPoint) * CFrame.new(0, 0, -15)
-                        end
-                    end
-                end
-            end
-        end
-    )
-end
 -- Anti Fling (stole it from the game itself LMFAO)
 do
     spawnloop(
