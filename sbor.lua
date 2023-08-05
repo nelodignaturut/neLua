@@ -1,6 +1,5 @@
 -- Very Beautiful Ui Lib :D
-local library =
-    loadstring(game:HttpGet"https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua")()
+local library = loadstring(game:HttpGet"https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua")()
 local venyx = library.new "nelo test"
 -- //Variables
 local User, RepStor = game:GetService "Players".LocalPlayer, game:GetService "ReplicatedStorage"
