@@ -28,13 +28,13 @@ Section:NewSlider("Walkspeed Slider", "Same thing but slider", 500, 0, function(
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = iShowPeed
 end)
 Section:NewKeybind("30 WalkSpeed", "Keybind for said WalkSpeed", Enum.KeyCode.F1, function()
-	 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 30
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 30
 end)
 Section:NewKeybind("50 WalkSpeed", "Keybind for said WalkSpeed ", Enum.KeyCode.F2, function()
-	 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
 end)
 Section:NewKeybind("100 WalkSpeed", "Keybind for said WalkSpeed", Enum.KeyCode.F3, function()
-	 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
 end)
 local Section = Tab:NewSection("CameraZoomDistance")
 Section:NewSlider("Zoom Distance", "Increase or decrease max zoom distance", 10000, 500, function(cum)
@@ -42,6 +42,9 @@ Section:NewSlider("Zoom Distance", "Increase or decrease max zoom distance", 100
 end)
 local Section = Tab:NewSection("AutoJumpEnabled")
 Section:NewButton("Disable AutoJumpEnabled", "Disables autojump feature for mobile", function()
+	game.Players.LocalPlayer.Character.Humanoid.AutoJumpEnabled = false
+end)
+Section:NewKeybind("AutoJumpEnabled Keybind", "Keybind for AutoJumpEnabled", Enum.KeyCode.F4, function()
 	game.Players.LocalPlayer.Character.Humanoid.AutoJumpEnabled = false
 end)
 local Section = Tab:NewSection("Scripts")
@@ -390,7 +393,7 @@ end)
 Section:NewSlider("Walkspeed Slider", "Same thing but slider", 25, 0, function(slowaf)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = slowaf
 end)
-Section:NewKeybind("22 WalkSpeed Keybind", "Quickchange", Enum.KeyCode.F4, function()
+Section:NewKeybind("22 WalkSpeed Keybind", "Quickchange", Unbound, function()
 	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 22
 end)
 Section:NewLabel("WoA used to have a hard limit of 25, sometimes 22")
