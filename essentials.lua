@@ -1,5 +1,4 @@
 game.Players.LocalPlayer.CameraMaxZoomDistance = 500
-game.Players.LocalPlayer.Character.Humanoid.AutoJumpEnabled = false
 local infiniteJumpButton = Instance.new("TextButton")
 local function setInfinityJumpButton()
 	    local script = Instance.new("LocalScript", infiniteJumpButton)
