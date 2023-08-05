@@ -424,5 +424,5 @@ do
         )
     end
 end
-venyx:Notify("I HATE LEECHES!", "There are a lot of Leeches on YT :D")
+venyx:Notify("EXPERIMENTAL SCRIPT", "trying to add toggle UI")
 venyx:SelectPage(venyx.pages[1], true)
