@@ -1,7 +1,7 @@
 -- Very Beautiful Ui Lib :D
 local library =
     loadstring(game:HttpGet "https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua")()
-local venyx = library.new "//Sword Blox Online: Rebirth//    //turu, tangi, ngecit, repeat//    //nelo's custom//"
+local venyx = library.new "//Sword Blox Online: Rebirth//    //turu, tangi, ngecit, repeat//"
 -- //Variables
 local User, RepStor = game:GetService "Players".LocalPlayer, game:GetService "ReplicatedStorage"
 local MobHolder, LastMobCFrame, HighestPartY, TempDisable, CurrentTarget = {}, {}, {}
@@ -59,7 +59,6 @@ do
         5
     )
 end
-
 -- Anti Fling (stole it from the game itself LMFAO)
 do
     spawnloop(
