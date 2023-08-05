@@ -393,9 +393,6 @@ end)
 Section:NewSlider("Walkspeed Slider", "Same thing but slider", 25, 0, function(slowaf)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = slowaf
 end)
-Section:NewKeybind("22 WalkSpeed Keybind", "Quickchange", Enum.KeyCode.F7, function()
-	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 22
-end)
 Section:NewLabel("WoA used to have a hard limit of 25, sometimes 22")
 local Tab = Window:NewTab("Sword Blox Online")
 local Section = Tab:NewSection("Scripts")
