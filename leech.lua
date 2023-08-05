@@ -59,6 +59,7 @@ do
         5
     )
 end
+
 -- Anti Fling (stole it from the game itself LMFAO)
 do
     spawnloop(
