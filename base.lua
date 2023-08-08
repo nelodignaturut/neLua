@@ -6,7 +6,8 @@ getgenv().Notify = function(title, text, icon, time)
         Duration = time;
     })
 end
- -- Example: Notify("Title here", "Text here", "Icon assetid here", 5) -- Can be any number (how long the notification lasts)
+-- Example: Notify("Title here", "Text here", "Icon assetid here", 5) -- Can be any number (how long the notification lasts)
+-- Kavo UI gitbook = https://xheptcofficial.gitbook.io/kavo-library/
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 getgenv().Theme = "Serpent"
 --[[
@@ -20,7 +21,7 @@ Midnight
 Sentinel
 Synapse
 Serpent
-]]--
+]]
 local Window = Library.CreateLib("//nelo's custom//		//turu, tangi, ngecit, repeat//		//內洛//", getgenv().Theme)
 local Tab = Window:NewTab("Change Log")
 local Section = Tab:NewSection("26/07/2023")
@@ -57,6 +58,7 @@ Section:NewButton("Disable AutoJumpEnabled", "Disables autojump feature for mobi
 end)
 Section:NewKeybind("AutoJumpEnabled Keybind", "Keybind for AutoJumpEnabled", Enum.KeyCode.F4, function()
 	game.Players.LocalPlayer.Character.Humanoid.AutoJumpEnabled = false
+	Notify("AutoJumpEnabled", "is now disabled", "", 5)
 end)
 local Section = Tab:NewSection("Scripts")
 Section:NewButton("Client-sided Resizable Platform", "Forced on function, Insert to create platform, F4 to resize", function()
@@ -424,6 +426,7 @@ Section:NewLabel("SBO:R Script by michaeplays")
 Section:NewLabel("nelo's custom by nelodignaturut")
 Section:NewButton("All in one button", "Activates all important scripts", function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/nelodignaturut/neLua/main/essentials.lua"))()
+	Notify("All In One", "Scripts executed", "", 5)
 end)
 Section:NewTextBox("TextboxText", "TextboxInfo", function(txt)
 	print(txt)
@@ -437,8 +440,10 @@ end)
 Section:NewToggle("ToggleText", "ToggleInfo", function(state)
     if state then
         print("Toggle On")
+	Notify("yes", "we", "", 5)
     else
         print("Toggle Off")
+	Notify("no", "we", "", 5)
     end
 end)
 Section:NewButton("rejoin", "ButtonInfo", function()
