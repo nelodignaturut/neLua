@@ -1,3 +1,12 @@
+getgenv().Notify = function(title, text, icon, time)
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = title; 
+        Text = text;
+        Icon = icon;
+        Duration = time;
+    })
+end
+ -- Example: Notify("Title here", "Text here", "Icon assetid here", 5) -- Can be any number (how long the notification lasts)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 getgenv().Theme = "Serpent"
 --[[
@@ -437,5 +446,5 @@ Section:NewButton("rejoin", "ButtonInfo", function()
 end)
 Section:NewButton("ButtonText", "ButtonInfo", function()
 	print("Clicked")
-	Notify("tap deez", "how many lines?", "yes")
+	Notify("yes", "we", "", 5)
 end)
