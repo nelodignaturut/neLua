@@ -9,7 +9,7 @@ end
 -- Example: Notify("Title here", "Text here", "Icon assetid here", 5) -- Can be any number (how long the notification lasts)
 -- Kavo UI gitbook = https://xheptcofficial.gitbook.io/kavo-library/
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-getgenv().Theme = "Serpent"
+getgenv().Theme = "Sentinel"
 --[[
 Themes:
 LightTheme
@@ -58,7 +58,7 @@ Section:NewButton("Disable AutoJumpEnabled", "Disables autojump feature for mobi
 end)
 Section:NewKeybind("AutoJumpEnabled Keybind", "Keybind for AutoJumpEnabled", Enum.KeyCode.F4, function()
 	game.Players.LocalPlayer.Character.Humanoid.AutoJumpEnabled = false
-	Notify("AutoJumpEnabled", "is now disabled", "", 5)
+	Notify("AutoJump disabled", "Resets on death", "", 3)
 end)
 local Section = Tab:NewSection("Scripts")
 Section:NewButton("Client-sided Resizable Platform", "Forced on function, Insert to create platform, F4 to resize", function()
