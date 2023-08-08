@@ -1,15 +1,17 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-getgenv().Theme = "Sentinel"
---[[Themes:
-    LightTheme
-    DarkTheme
-    GrapeTheme
-    BloodTheme
-    Ocean
-    Midnight
-    Sentinel
-    Synapse
-]]
+getgenv().Theme = "Serpent"
+--[[
+Themes:
+LightTheme
+DarkTheme
+GrapeTheme
+BloodTheme
+Ocean
+Midnight
+Sentinel
+Synapse
+Serpent
+]]--
 local Window = Library.CreateLib("//nelo's custom//		//turu, tangi, ngecit, repeat//		//內洛//", getgenv().Theme)
 local Tab = Window:NewTab("Change Log")
 local Section = Tab:NewSection("26/07/2023")
@@ -413,4 +415,20 @@ Section:NewLabel("SBO:R Script by michaeplays")
 Section:NewLabel("nelo's custom by nelodignaturut")
 Section:NewButton("All in one button", "Activates all important scripts", function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/nelodignaturut/neLua/main/essentials.lua"))()
+end)
+Section:NewTextBox("TextboxText", "TextboxInfo", function(txt)
+	print(txt)
+end)
+Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.F, function()
+	print("You just clicked the bind")
+end)
+Section:NewButton("ButtonText", "ButtonInfo", function()
+    print("Clicked")
+end)
+Section:NewToggle("ToggleText", "ToggleInfo", function(state)
+    if state then
+        print("Toggle On")
+    else
+        print("Toggle Off")
+    end
 end)
