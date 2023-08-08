@@ -432,3 +432,6 @@ Section:NewToggle("ToggleText", "ToggleInfo", function(state)
         print("Toggle Off")
     end
 end)
+Section:rejoin("ButtonText", "ButtonInfo", function()
+    game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+end)
