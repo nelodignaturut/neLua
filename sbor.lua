@@ -40,7 +40,7 @@ do
                 )
             until task.wait() and d
             if Player:GetRankInGroup(tonumber(GroupID)) >= Rank then
-                User:Kick "\nAdmin Detected!"
+                User:Kick "\nYou've sensed a presence of the staff team and left right away."
             end
         end
 
