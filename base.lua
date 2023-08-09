@@ -41,12 +41,15 @@ Section:NewSlider("Walkspeed Slider", "Same thing but slider", 500, 0, function(
 end)
 Section:NewKeybind("30 WalkSpeed", "Keybind for said WalkSpeed", Enum.KeyCode.F1, function()
 	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 30
+	Notify("30", "Walkspeed", "", 1)
 end)
 Section:NewKeybind("50 WalkSpeed", "Keybind for said WalkSpeed ", Enum.KeyCode.F2, function()
 	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
+	Notify("50", "Walkspeed", "", 1)
 end)
 Section:NewKeybind("100 WalkSpeed", "Keybind for said WalkSpeed", Enum.KeyCode.F3, function()
 	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+	Notify("100", "Walkspeed", "", 1)
 end)
 local Section = Tab:NewSection("CameraZoomDistance")
 Section:NewSlider("Zoom Distance", "Increase or decrease max zoom distance", 10000, 500, function(cum)
@@ -58,7 +61,7 @@ Section:NewButton("Disable AutoJumpEnabled", "Disables autojump feature for mobi
 end)
 Section:NewKeybind("AutoJumpEnabled Keybind", "Keybind for AutoJumpEnabled", Enum.KeyCode.F4, function()
 	game.Players.LocalPlayer.Character.Humanoid.AutoJumpEnabled = false
-	Notify("AutoJump disabled", "Resets on death", "", 3)
+	Notify("AutoJump Disabled", "Resets on death", "", 1)
 end)
 local Section = Tab:NewSection("Scripts")
 Section:NewButton("Client-sided Resizable Platform", "Forced on function, Insert to create platform, F4 to resize", function()
@@ -428,6 +431,8 @@ Section:NewButton("All in one button", "Activates all important scripts", functi
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/nelodignaturut/neLua/main/essentials.lua"))()
 	Notify("All In One", "Scripts executed", "", 5)
 end)
+local Tab = Window:NewTab("Test Chamber")
+local Section = Tab:NewSection("stuff")
 Section:NewTextBox("TextboxText", "TextboxInfo", function(txt)
 	print(txt)
 end)
