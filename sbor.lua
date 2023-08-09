@@ -80,12 +80,23 @@ do
         local MainSection = MainPage:addSection "Main"
         -- 10 Fish Every 4 Mins
         do
-            MainSection:addButton(
+        	local Enabled
+            MainSection:addToggle(
                 "Auto Fish",
-                function()
+                nil,
+                function(fish)
+                	Enabled = fish
+                end
+            )
             spawnloop(
                 function()
-                    game.ReplicatedStorage.CatchFish:FireServer(10)
+                    pcall(
+                        function()
+                			if Enabled then
+                   				game.ReplicatedStorage.CatchFish:FireServer(10)
+                   			end
+                   		end
+                   	)
                 end,
                 5
             )
