@@ -22,7 +22,7 @@ Sentinel
 Synapse
 Serpent
 ]]
-local Window = Library.CreateLib("//nelo's custom//		//turu, tangi, ngecit, repeat//		//內洛//", getgenv().Theme)
+local Window = Library.CreateLib("//neLua//		//turu, tangi, ngecit, repeat//		//內洛//", getgenv().Theme)
 local Tab = Window:NewTab("Change Log")
 local Section = Tab:NewSection("26/07/2023")
 Section:NewLabel("Added sections for each commands")
