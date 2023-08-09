@@ -1,7 +1,7 @@
 -- Very Beautiful Ui Lib :D
 local library =
     loadstring(game:HttpGet "https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua")()
-local venyx = library.new "//Sword Blox Online: Rebirth//         //test phase//"
+local venyx = library.new "//Sword Blox Online: Rebirth///    //turu, tangi, ngecit, repeat//    //neLua//"
 -- //Variables
 local User, RepStor = game:GetService "Players".LocalPlayer, game:GetService "ReplicatedStorage"
 local MobHolder, LastMobCFrame, HighestPartY, TempDisable, CurrentTarget = {}, {}, {}
@@ -50,15 +50,6 @@ do
         end
     end
 end
--- 10 Fish Every 4 Mins
-do
-    spawnloop(
-        function()
-            game.ReplicatedStorage.CatchFish:FireServer(10)
-        end,
-        5
-    )
-end
 
 -- Anti Fling (stole it from the game itself LMFAO)
 do
@@ -87,6 +78,18 @@ do
     -- Main Section
     do
         local MainSection = MainPage:addSection "Main"
+        -- 10 Fish Every 4 Mins
+        do
+            MainSection:addButton(
+                "Auto Fish",
+                function()
+            spawnloop(
+                function()
+                    game.ReplicatedStorage.CatchFish:FireServer(10)
+                end,
+                5
+            )
+        end
         -- Infinite Stamina
         do
             local Enabled
