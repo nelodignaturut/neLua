@@ -394,7 +394,7 @@ Mouse.Button1Down:connect(
         Plr.Character:MoveTo(Mouse.Hit.p)
     end)
 end)
-Section:NewButton("ESP", "Forced on function, resets on death", function()
+Section:NewToggle("ESP", "Forced on function, resets on death", function(mati)
 	MobEsp = false
 	MobLocations = {game:GetService("Workspace")} --add locations of the mobs in the workspace
 	MobNames = {""} --add the names of the mobs
@@ -402,7 +402,11 @@ Section:NewButton("ESP", "Forced on function, resets on death", function()
 	PlayerESP = true
 	
 	plr = game.Players.LocalPlayer
+	if mati then
 	_G.on = true --set to false if you want to turn it off
+	else
+	_G.on = false --set to false if you want to turn it off
+	end
 	
 	names = {}
 	function isin(obj,tbl)
