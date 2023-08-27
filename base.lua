@@ -8,7 +8,7 @@ getgenv().Notify = function(title, text, icon, time)
 end
 -- Example: Notify("Title here", "Text here", "Icon assetid here", 5) -- Can be any number (how long the notification lasts)
 -- Kavo UI gitbook = https://xheptcofficial.gitbook.io/kavo-library/
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/nelodignaturut/neLua/main/ui.lua"))()
 getgenv().Theme = "Sentinel"
 --[[
 Themes:
