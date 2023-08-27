@@ -581,10 +581,84 @@ end)
 Section:NewLabel("WoA used to have a hard limit of 25, sometimes 22")
 local Tab = Window:NewTab("Sword Blox Online")
 local Section = Tab:NewSection("Scripts")
-Section:NewButton("Script for fishing and mining", "ONLY FOR MINING AND FISHING", function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/nelodignaturut/neLua/main/sbor.lua"))()
+Section:NewButton("Inject Script", "experimental", function(rtila)
+	-- //Variables
+	local User, RepStor = game:GetService "Players".LocalPlayer, game:GetService "ReplicatedStorage"
+	local MobHolder, LastMobCFrame, HighestPartY, TempDisable, CurrentTarget = {}, {}, {}
+	
+	-- //Functions
+	local function IsAlive(Char)
+	    return Char and Char:IsA "Model" and Char:FindFirstChild "Humanoid" and Char.Humanoid.Health > 0
+	end
+	
+	local function spawnloop(func, Delay)
+	    spawn(
+	        function()
+	            while true do
+	                func()
+	                task.wait(Delay)
+	            end
+	        end
+	    )
+	end
+	-- Anti Mod
+	do
+	    for GroupID, Rank in next, {
+	        ["5683480"] = 212,
+	        ["5754032"] = 130,
+	        ["5928691"] = 1,
+	        ["7171494"] = 1
+	    } do
+	        local function PlayerRankCheck(Player)
+	            repeat
+	                local d =
+	                    pcall(
+	                    function()
+	                        return Player.GetRankInGroup
+	                    end
+	                )
+	            until task.wait() and d
+	            if Player:GetRankInGroup(tonumber(GroupID)) >= Rank then
+	                User:Kick "\nYou've sensed a presence of the staff team and left right away."
+	            end
+	        end
+	
+	        game:GetService "Players".PlayerAdded:Connect(PlayerRankCheck)
+	        for _, player in next, game:GetService "Players":GetChildren() do
+	            task.spawn(PlayerRankCheck, player)
+	        end
+	    end
+	end
+	-- Anti Fling (stole it from the game itself LMFAO)
+	do
+	    spawnloop(
+	        function()
+	            pcall(
+	                function()
+	                    local RooPart = User.Character.HumanoidRootPart
+	                    if
+	                        workspace.GameLoader.Options.Floor.Value ~= 14 and
+	                            User.Character.Humanoid.MoveDirection.Magnitude <= 0 and
+	                            (RooPart.RotVelocity.Magnitude >= 100 or RooPart.Velocity.Magnitude >= 100)
+	                     then
+	                        RooPart.AssemblyLinearVelocity = Vector3.new(1, 1, 1)
+	                        RooPart.RotVelocity = Vector3.new(1, 1, 1)
+	                        RooPart.Velocity = Vector3.new(5, 5, 5)
+	                    end
+	                end
+	            )
+	        end
+	    )
+	end
+	-- Infinite Stamina
+	do
+		spawnloop(function()
+			User.PlayerGui.GameGui.Stamina.Value = User.PlayerStats.MaxStamina.Value
+		end)
+	end
+	Notify("Sword Blox Online: Rebirth", "Scripts executed", "", 5)
 end)
-Section:NewLabel("ONLY MINING AND FISHING WORKS UNDETECTED")
+Section:NewLabel("more scripts is being added")
 local Tab = Window:NewTab("Settings")
 local Section = Tab:NewSection("more to be added (custom ui color and more)")
 Section:NewKeybind("Toggle UI Keybind", "Rebind user interface toggle, press bound key again to toggle", Enum.KeyCode.F5, function()
