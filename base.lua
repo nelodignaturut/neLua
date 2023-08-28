@@ -394,7 +394,8 @@ Mouse.Button1Down:connect(
         Plr.Character:MoveTo(Mouse.Hit.p)
     end)
 end)
-Section:NewToggle("ESP", "Forced on function, resets on death", function(mati)
+Section:NewLabel("Extra-Sensory Perception")
+Section:NewToggle("basic ESP", "Forced on function, resets on death", function(mati)
 	MobEsp = false
 	MobLocations = {game:GetService("Workspace")} --add locations of the mobs in the workspace
 	MobNames = {""} --add the names of the mobs
@@ -563,6 +564,8 @@ Section:NewToggle("ESP", "Forced on function, resets on death", function(mati)
 		end
 	end
 end)
+Section:NewButton("Better ESP", "F4 for UI, F3 for toggling esp", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/nelodignaturut/neLua/main/esp.lua"))()
 Section:NewButton("anti afk", "experimental", function()
 	local VirtualUser=game:service'VirtualUser'
 	game:service('Players').LocalPlayer.Idled:connect(function()
