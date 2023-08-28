@@ -566,6 +566,7 @@ Section:NewToggle("basic ESP", "Forced on function, resets on death", function(m
 end)
 Section:NewButton("Better ESP", "F4 for UI, F3 for toggling esp", function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/nelodignaturut/neLua/main/esp.lua"))()
+end)
 Section:NewButton("anti afk", "experimental", function()
 	local VirtualUser=game:service'VirtualUser'
 	game:service('Players').LocalPlayer.Idled:connect(function()
