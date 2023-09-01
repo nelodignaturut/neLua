@@ -1,5 +1,5 @@
 local library =
-    loadstring(game:HttpGet "https://raw.githubusercontent.com/nelodignaturut/neLua/main/denoed.lua")()
+    loadstring(game:HttpGet "https://raw.githubusercontent.com/nelodignaturut/neLua/main/UI/nyx.lua")()
 local venyx = library.new "//Sword Blox Online: Rebirth///    //turu, tangi, ngecit, repeat//    //neLua//"
 -- //Variables
 local User, RepStor = game:GetService "Players".LocalPlayer, game:GetService "ReplicatedStorage"
