@@ -206,6 +206,13 @@ do
         )
     end
 end
+-- UI Toggle
+do
+    local settings = venyx:addPage "Settings":addSection "UI Toggle"
+    Section:addKeybind(Enum.KeyCode.F6)
+        UI:toggle
+    end
+end
 -- Theme
 do
     local colors = venyx:addPage "Theme":addSection "Colors"
