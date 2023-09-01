@@ -1,6 +1,5 @@
--- Very Beautiful Ui Lib :D
 local library =
-    loadstring(game:HttpGet "https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua")()
+    loadstring(game:HttpGet "https://raw.githubusercontent.com/nelodignaturut/neLua/main/denoed.lua")()
 local venyx = library.new "//Sword Blox Online: Rebirth///    //turu, tangi, ngecit, repeat//    //neLua//"
 -- //Variables
 local User, RepStor = game:GetService "Players".LocalPlayer, game:GetService "ReplicatedStorage"
